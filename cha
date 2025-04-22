@@ -29,3 +29,155 @@ def home():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
+
+
+docker tag local-image-name username/image-name:tag
+
+docker push username/image-name:tag
+
+
+docker build -t mydockerhubname/myapp:1.0 .
+docker login
+docker push mydockerhubname/myapp:1.0
+
+
+
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/yourusername/your-repo.git
+git push -u origin main
+
+
+git clone https://github.com/yourusername/your-repo.git
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Addition Test</title>
+</head>
+<body>
+  <input id="num1" type="number" />
+  <input id="num2" type="number" />
+  <button id="addBtn" onclick="add()">Add</button>
+  <p id="result"></p>
+
+  <script>
+    function add() {
+      const a = parseFloat(document.getElementById('num1').value);
+      const b = parseFloat(document.getElementById('num2').value);
+      document.getElementById('result').textContent = a + b;
+    }
+  </script>
+</body>
+</html>
+
+
+
+# 🔁 Daily Git Flow (Sync, Commit, Push)
+git pull origin main
+git add .
+git commit -m "your message"
+git push origin main
+
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+import time
+import os
+
+# Setup WebDriver
+service = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service)
+
+# Load local HTML file
+file_path = 'file://' + os.path.abspath('index.html')
+driver.get(file_path)
+
+# Define test cases: (num1, num2, expected_sum)
+test_cases = [
+    ('3', '4', '7.0'),
+    ('10', '15', '25.0'),
+    ('-5', '2', '-3.0'),
+    ('0', '0', '0.0'),
+    ('2.5', '3.1', '5.6')
+]
+
+for num1, num2, expected in test_cases:
+    # Refresh the page to reset inputs
+    driver.get(file_path)
+    time.sleep(0.5)
+
+    # Fill in numbers
+    driver.find_element(By.ID, 'num1').clear()
+    driver.find_element(By.ID, 'num2').clear()
+    driver.find_element(By.ID, 'num1').send_keys(num1)
+    driver.find_element(By.ID, 'num2').send_keys(num2)
+
+    # Click the Add button
+    driver.find_element(By.ID, 'addBtn').click()
+
+    # Wait briefly for result to update
+    time.sleep(0.5)
+
+    # Get and verify result
+    result = driver.find_element(By.ID, 'result').text.strip()
+    assert result == expected, f"❌ {num1} + {num2} = {result}, expected {expected}"
+    print(f"✅ Test passed: {num1} + {num2} = {expected}")
+
+# Close browser
+driver.quit()
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Addition Test</title>
+</head>
+<body>
+  <input id="num1" type="number" />
+  <input id="num2" type="number" />
+  <button id="addBtn" onclick="add()">Add</button>
+  <p id="result"></p>
+
+  <script>
+    function add() {
+      const a = parseFloat(document.getElementById('num1').value);
+      const b = parseFloat(document.getElementById('num2').value);
+      document.getElementById('result').textContent = a + b;
+    }
+  </script>
+</body>
+</html>
+
+
+docker --version               # Check Docker version
+docker info                   # Show system-wide info
+docker login                  # Log in to Docker Hub
+
+docker build -t name:tag .     # Build image from Dockerfile
+docker images                  # List all images
+docker rmi image-id            # Remove image
+docker tag src target          # Tag image with new name
+docker pull name:tag           # Pull image from Docker Hub
+docker push name:tag           # Push image to Docker Hub
+
+
+docker run image               # Run container from image
+docker run -it image           # Run interactively
+docker run -d image            # Run in detached (background) mode
+docker run --name mycontainer image  # Run with custom name
+docker run -p 8080:80 image    # Map host:container ports
+docker start container-id      # Start a stopped container
+docker stop container-id       # Stop a running container
+docker restart container-id    # Restart a container
+docker rm container-id         # Remove a container
+
+
+
+
